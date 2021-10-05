@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">IOS 13 Calculator</string>
+
+
+    <string name="invalid_input">Invalid format used.</string>
+
+    <string name="digit_error">Can not enter more than 25 digits.</string>
+    <string name="operator_error">Can not enter more than 40 operators.</string>
+
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created by Mohamad.J on 29/9/2021-->
+<resources>
+
+    <style name="LightTheme" parent="Theme.AppCompat.NoActionBar" >
+        <item name="bgColor">@color/white</item>
+        <item name="textColor">@color/black</item>
+        <item name="clearTextColor">@color/grey</item>
+        <item name="buttonBackground">@color/background_color</item>
+    </style>
+
+    <style name="DarkTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="bgColor">@color/black</item>
+        <item name="textColor">@color/white</item>
+        <item name="clearTextColor">@android:color/holo_red_dark</item>
+        <item name="buttonBackground">@color/shade_color</item>
+    </style>
+
+</resources>

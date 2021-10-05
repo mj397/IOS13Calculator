@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created by Mohamad.J on 29/9/2021-->
+<resources>
+
+    <attr name="bgColor" format="color"/>
+    <attr name="textColor" format="color"/>
+    <attr name="clearTextColor" format="color"/>
+    <attr name="buttonBackground" format="color"/>
+
+</resources>

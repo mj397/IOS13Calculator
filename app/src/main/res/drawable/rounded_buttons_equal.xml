@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created by Mohamad Jamous on 9/12/2021-->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" android:padding="10dp">
+    <solid android:color="@color/equal_sign_color" />
+    <corners
+        android:bottomRightRadius="34dp"
+        android:bottomLeftRadius="34dp"
+        android:topLeftRadius="34dp"
+        android:topRightRadius="34dp"/>
+</shape>
