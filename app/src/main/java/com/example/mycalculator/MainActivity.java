@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Mohamad Jamous on 9/12/2021
+ * (updated)
  */
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnClear, btnPerLeft, btnPerRight,
     btnDivided, btnSeven, btnEight, btnNine, btnTimes, btnFour, btnFive, btnSix,
     btnMinus, btnOne, btnTwo, btnThree, btnPlus, btnZero, btnPoint, btnEqual;
-    private ArrayList<String> mUserEntries = new ArrayList<>();
+    private ArrayList<String> mUserEntriesList = new ArrayList<>();
     private ArrayList<String> mSymbolsList = new ArrayList<>();
     private boolean isEqualPressed = false;
     private boolean isPointPressed = false;
@@ -43,38 +44,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         //initializing views
         intiValues();
 
 
-        RelativeLayout lin = (RelativeLayout) findViewById(R.id.relative_layout);
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relative_layout);
         //registering mTvTotal textView for getting the total value to clipboard
         registerForContextMenu(mTvTotal);
-        lin.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
+        relativeLayout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
             public void onSwipeTop()
             {
             }
             public void onSwipeRight()
             {
-                if (!(mUserEntries.isEmpty())) {
+                if (!(mUserEntriesList.isEmpty())) {
 
                     boolean isEqual = false;
                     for (int i = 0; i < mSymbolsList.size(); i++) {
-                        if (mUserEntries.get(mUserEntries.size() - 1).equals(mSymbolsList.get(i))) {
+                        if (mUserEntriesList.get(mUserEntriesList.size() - 1).equals(mSymbolsList.get(i))) {
                             isEqual = true;
                             break;
                         }
                     }
-                    if (mUserEntries.size() == 1)
+                    if (mUserEntriesList.size() == 1)
                     {
-                        mUserEntries.clear();
+                        mUserEntriesList.clear();
                         mTvTotal.setText("");
                         mTvCalculations.setText("");
                     }
                     else
                     {
-                        mUserEntries.remove(mUserEntries.size() - 1);
+                        mUserEntriesList.remove(mUserEntriesList.size() - 1);
                         displayText(false);
                     }
 
@@ -91,25 +91,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onSwipeLeft()
             {
 
-                if (!(mUserEntries.isEmpty()))
+                if (!(mUserEntriesList.isEmpty()))
                 {
                     boolean isEqual = false;
                     for (int i = 0; i < mSymbolsList.size(); i++) {
-                        if (mUserEntries.get(mUserEntries.size() - 1).equals(mSymbolsList.get(i))) {
+                        if (mUserEntriesList.get(mUserEntriesList.size() - 1).equals(mSymbolsList.get(i))) {
                             isEqual = true;
                             break;
                         }
                     }
 
-                    if (mUserEntries.size() == 1)
+                    if (mUserEntriesList.size() == 1)
                     {
-                        mUserEntries.clear();
+                        mUserEntriesList.clear();
                         mTvTotal.setText("");
                         mTvCalculations.setText("");
                     }
                     else
                     {
-                        mUserEntries.remove(mUserEntries.size() - 1);
+                        mUserEntriesList.remove(mUserEntriesList.size() - 1);
                         displayText(false);
                     }
 
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId())
         {
             case R.id.button_clear:
-                mUserEntries.clear();
+                mUserEntriesList.clear();
                 mTvCalculations.setText("");
                 mTvTotal.setText("");
                 isPointPressed = false;
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_per_left:
                 if (checkForInput())
                 {
-                    mUserEntries.add("(");
+                    mUserEntriesList.add("(");
                     displayText(false);
                 }
 
@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.button_per_right:
                 if (checkForInput()) {
-                    mUserEntries.add(")");
+                    mUserEntriesList.add(")");
                     displayText(false);
                 }
                 break;
@@ -227,23 +227,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.button_7:
-                if (checkForInput()) {
+                if (checkForInput())
+                {
                     AnimateViews('t');
-                    mUserEntries.add("7");
+                    mUserEntriesList.add("7");
                     displayText(false);
                 }
                 break;
             case R.id.button_8:
                 if (checkForInput()) {
                     AnimateViews('t');
-                    mUserEntries.add("8");
+                    mUserEntriesList.add("8");
                     displayText(false);
                 }
                 break;
             case R.id.button_9:
                 if (checkForInput()) {
                     AnimateViews('t');
-                    mUserEntries.add("9");
+                    mUserEntriesList.add("9");
                     displayText(false);
                 }
                 break;
@@ -257,21 +258,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_4:
                 if (checkForInput()) {
                     AnimateViews('t');
-                    mUserEntries.add("4");
+                    mUserEntriesList.add("4");
                     displayText(false);
                 }
                 break;
             case R.id.button_5:
                 if (checkForInput()) {
                     AnimateViews('t');
-                    mUserEntries.add("5");
+                    mUserEntriesList.add("5");
                     displayText(false);
                 }
                 break;
             case R.id.button_6:
                 if (checkForInput()) {
                     AnimateViews('t');
-                    mUserEntries.add("6");
+                    mUserEntriesList.add("6");
                     displayText(false);
                 }
                 break;
@@ -285,21 +286,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_1:
                 if (checkForInput()) {
                     AnimateViews('t');
-                    mUserEntries.add("1");
+                    mUserEntriesList.add("1");
                     displayText(false);
                 }
                 break;
             case R.id.button_2:
                 if (checkForInput()) {
                     AnimateViews('t');
-                    mUserEntries.add("2");
+                    mUserEntriesList.add("2");
                     displayText(false);
                 }
                 break;
             case R.id.button_3:
                 if (checkForInput()) {
                     AnimateViews('t');
-                    mUserEntries.add("3");
+                    mUserEntriesList.add("3");
                     displayText(false);
                 }
                 break;
@@ -313,7 +314,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_0:
                 if (checkForInput()) {
                     AnimateViews('t');
-                    mUserEntries.add("0");
+                    mUserEntriesList.add("0");
                     displayText(false);
                 }
                 break;
@@ -344,38 +345,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void displayText(boolean isEqualPressed)
     {
 
-        if (!(mUserEntries.isEmpty()))
+        if (!(mUserEntriesList.isEmpty()))
         {
-            int size = mUserEntries.size();
+            int size = mUserEntriesList.size();
             String content = "";
             String visualContent = "";
 
             for (int i = 0; i < size; i++)
             {
                 System.out.println("contentBefore: " + content);
-                visualContent += mUserEntries.get(i);
-                if (mUserEntries.get(i).equals("×"))
+                visualContent += mUserEntriesList.get(i);
+                if (mUserEntriesList.get(i).equals("×"))
                 {
                     content +=  "*";
                 }
-                else if (mUserEntries.get(i).equals("−"))
+                else if (mUserEntriesList.get(i).equals("−"))
                 {
                     content +=  "-";
                 }
-                else if (mUserEntries.get(i).equals("× e"))
+                else if (mUserEntriesList.get(i).equals("× e"))
                 {
                     content +=  "e";
                 }
                 else
                 {
-                    content += mUserEntries.get(i);
+                    content += mUserEntriesList.get(i);
                 }
 
                 System.out.println("contentAfter: " + content);
 
             }
 
-            StringBuilder result = new StringBuilder();
+            StringBuilder resultBuilder = new StringBuilder();
             SpannableStringBuilder builder = new SpannableStringBuilder();
 
 
@@ -387,7 +388,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (!(c == ')' || c == '(' ))
                 {
                     System.out.println("cReplaced: " + c);
-                    result.append(" ");
+                    resultBuilder.append(" ");
                 }
 
                 if (c == '/' || c == '+' || c == '×' || c == '−')
@@ -399,7 +400,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else
                 {
-
+                    System.out.println("NumberValueTest: " + c);
                     String string = String.valueOf(c);
                     SpannableString redSpannable= new SpannableString(string);
                     if (isEqualPressed)
@@ -412,9 +413,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     builder.append(redSpannable);
 
+
+
                 }
 
-                result.append(visualContent.charAt(i));
+                resultBuilder.append(visualContent.charAt(i));
 
                 System.out.println("visualContentAfter: " + visualContent);
             }
@@ -432,22 +435,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void addSymbol(String symbol)
     {
-        if (!(mUserEntries.isEmpty()))
+        if (!(mUserEntriesList.isEmpty()))
         {
             int size = mSymbolsList.size();
 
-            String lastElement = mUserEntries.get(mUserEntries.size() - 1);
+            String lastElement = mUserEntriesList.get(mUserEntriesList.size() - 1);
 
             for (int i = 0; i < size; i++)
             {
                 if (lastElement.equals(mSymbolsList.get(i)))
                 {
-                    System.out.println("removedValue: " + mUserEntries.get(mUserEntries.size() - 1));
-                    mUserEntries.remove(mUserEntries.size() - 1);
+                    System.out.println("removedValue: " + mUserEntriesList.get(mUserEntriesList.size() - 1));
+                    mUserEntriesList.remove(mUserEntriesList.size() - 1);
                     break;
                 }
             }
-                mUserEntries.add(symbol);
+                mUserEntriesList.add(symbol);
                 displayText(false);
         }
 
@@ -492,7 +495,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             mTvCalculations.setTextSize(40);
             mTvCalculations.setTextColor(getResources().getColor(R.color.black));
-            mUserEntries.clear();
+            mUserEntriesList.clear();
 
             mTvCalculations.setText("");
             mTvTotal.setText("");
@@ -504,8 +507,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             mTvCalculations.setTextSize(39);
             mTvCalculations.setTextColor(R.attr.textColor);
-            mUserEntries.clear();
-            mUserEntries.add(mTvTotal.getText().toString());
+            mUserEntriesList.clear();
+            mUserEntriesList.add(mTvTotal.getText().toString());
             mTvTotal.setText("");
             isEqualPressed = false;
         }
@@ -519,11 +522,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String[] mNumbers;
         ArrayList<String> mSymbols = new ArrayList<>();
 
-        if (!(mUserEntries.isEmpty()))
+        if (!(mUserEntriesList.isEmpty()))
         {
-            for (int i = 0, n = mUserEntries.size(); i < n; i++)
+            for (int i = 0, n = mUserEntriesList.size(); i < n; i++)
             {
-                content += mUserEntries.get(i);
+                content += mUserEntriesList.get(i);
             }
 
 
@@ -548,21 +551,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void getTotal(boolean isSwiping) {
 
-        if (!(mUserEntries.isEmpty()))
+        if (!(mUserEntriesList.isEmpty()))
         {
-            int size = mUserEntries.size();
+            int size = mUserEntriesList.size();
             String content = "";
 
             for (int i = 0; i < size; i++) {
                 System.out.println("contentBefore: " + content);
-                if (mUserEntries.get(i).equals("×")) {
+                if (mUserEntriesList.get(i).equals("×")) {
                     content += "*";
-                } else if (mUserEntries.get(i).equals("−")) {
+                } else if (mUserEntriesList.get(i).equals("−")) {
                     content += "-";
-                } else if (mUserEntries.get(i).equals("× e")) {
+                } else if (mUserEntriesList.get(i).equals("× e")) {
                     content += "e";
                 } else {
-                    content += mUserEntries.get(i);
+                    content += mUserEntriesList.get(i);
                 }
 
             }
@@ -571,7 +574,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             boolean isError = false;
             for (int i = 0; i < mSymbolsList.size(); i++) {
-                if (mUserEntries.get(mUserEntries.size() - 1).equals(mSymbolsList.get(i))) {
+                if (mUserEntriesList.get(mUserEntriesList.size() - 1).equals(mSymbolsList.get(i))) {
                     isError = true;
                     break;
                 }
@@ -580,7 +583,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             {
                 Toast.makeText(mContext, getString(R.string.invalid_input), Toast.LENGTH_SHORT).show();
             }
-            else if ((mUserEntries.contains("(") && !(mUserEntries.contains(")"))) || (mUserEntries.contains(")") && !(mUserEntries.contains("("))))
+            else if ((mUserEntriesList.contains("(") && !(mUserEntriesList.contains(")"))) || (mUserEntriesList.contains(")") && !(mUserEntriesList.contains("("))))
             {
                 if (!isSwiping)
                 {
