@@ -1,8 +1,7 @@
 # IOS13Calculator
 IOS 13 Calculator app for android devices,
 adding, multiplying, dividing and subtracting with a great IOS 13 design where the user can swipe right and left on the number to delete.
-
-![Screenshot_20211005-134257_IOS 13 Calculator~2](https://user-images.githubusercontent.com/63315306/137896172-7d25e38a-f106-4641-8149-384b6eb25c8c.jpg 100x200)
-![Screenshot_20211005-160823_IOS 13 Calculator~2](https://user-images.githubusercontent.com/63315306/137897230-6e7d3959-58cf-4c82-bf10-0452d3314765.jpg 100x200)
-![Screenshot_20211005-160917_IOS 13 Calculator~2](https://user-images.githubusercontent.com/63315306/137897238-550a544d-9f2b-49a4-8af3-c65233c37a04.jpg 100x200)
-![Screenshot_20211005-160937_IOS 13 Calculator~2](https://user-images.githubusercontent.com/63315306/137897246-f1bc6a0a-541d-438d-aea3-fe28467c976c.jpg 100x200)
+![screenshot1](https://user-images.githubusercontent.com/63315306/137897973-10d39d5c-9efa-43f3-bd19-cae6b7150a04.jpg)
+![screenshot2](https://user-images.githubusercontent.com/63315306/137897984-3e701023-e832-44ef-ba20-56eb929ca521.jpg)
+![screenshot3](https://user-images.githubusercontent.com/63315306/137897990-c57f0aa2-7c9c-4988-85a1-b67d1a035923.jpg)
+![screenshot4](https://user-images.githubusercontent.com/63315306/137897995-8580bb15-3930-4c57-932f-b1208532591d.jpg)
